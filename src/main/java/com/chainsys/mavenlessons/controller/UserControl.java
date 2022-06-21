@@ -35,6 +35,15 @@ public class UserControl {
 	public List<User> listUsers() {
 		return userservices.getUsers();
 	}
+//	using query
+	@GetMapping(value = "/fetchuserbyidquery", produces = "application/json")
+	public User getUserQuery(int id) {
+		return userservices.findUserByIdQuery(id);
+		}
+	@GetMapping(value = "/fetchuserbyidnativequery", produces = "application/json")
+	public User getUserNativeQuery(int id) {
+		return userservices.findUserByIdNativeQuery(id);
+		}
 	@PostMapping(value = "/addnewuser", consumes = "application/json")
 //	when @RequestBody not used then new instance of user object is created with default values
 //	The HTTP input request values are ignored

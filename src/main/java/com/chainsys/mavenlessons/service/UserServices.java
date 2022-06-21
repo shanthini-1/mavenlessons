@@ -18,9 +18,19 @@ public class UserServices {
 	public User findUserById(int id) {
 		return uRepo.findById(id);
 	}
+	
+	public User findUserByIdQuery(int id) {
+		return uRepo.getUserByQuery(id);
+	}
+
+	public User findUserByIdNativeQuery(int id) {
+		return uRepo.getUserByNativeSQL(id);
+	}
+	
 	public List<User> getUsers(){
 		return uRepo.findAll();
 	}
+	
 	public void modifyUser(User user) {
 //		TODO: validate User.id before uRepo.save()
 		uRepo.save(user);
